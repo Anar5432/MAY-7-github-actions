@@ -1,6 +1,6 @@
 # DevOps CI/CD Lab
 
-*(Paste your status badge link here. It will look something like this: [![Actions App CI](https://github.com/Anar5432/.../badge.svg)] )*
+[![Actions App CI](https://github.com/Anar5432/MAY-7-github-actions/actions/workflows/ci.yaml/badge.svg)](https://github.com/Anar5432/MAY-7-github-actions/actions/workflows/ci.yaml) 
 
 ## Lab Deliverables
 
