@@ -1,16 +1,33 @@
-# DevOps CI/CD Lab
+# DevOps TV Show API: Complete CI/CD Pipeline
 
-[![Actions App CI](https://github.com/Anar5432/MAY-7-github-actions/actions/workflows/ci.yaml/badge.svg)](https://github.com/Anar5432/MAY-7-github-actions/actions/workflows/ci.yaml) 
 
-## Lab Deliverables
+## How to Test the Live API (Start Here!)
 
-This repository contains my completed CI/CD pipeline using GitHub Actions.
-The configuration file is located at `.github/workflows/ci.yml`.
-### The Cache not found
-![img_3.png](img_3.png)
+*Note for the reviewer: The original lab instructions mentioned testing a generic `/api/hello` or `/actuator/health` endpoint. I built a custom TV Show database instead, so the correct endpoint to test the live database connection is `/tvshows`.*
 
-### Proof of Failing Build 
-![img_1.png](img_1.png)
+My live Render URL is: `https://may-7-github-actions.onrender.com`
 
-### Proof of Passing Build 
-![img_2.png](img_2.png)
+You can test the API using any of these three methods:
+
+**1. The Quick Browser Test (Easiest)**
+Just click this link: [https://may-7-github-actions.onrender.com/tvshows](https://may-7-github-actions.onrender.com/tvshows)
+
+
+**2. The Terminal Test (cURL)**
+Open your terminal and run:
+`curl https://may-7-github-actions.onrender.com/tvshows`
+
+**3. The Postman Test**
+Send a standard `GET` request to `https://may-7-github-actions.onrender.com/tvshows`. You should receive a `200 OK` status and the formatted JSON data.
+
+---
+
+##  The Automation  Flow
+
+If you want to see the automationin action, check out the **Actions** tab in this repository.
+1. I push code.
+
+2. `Actions App CI` runs and tests the build.
+3. If it passes, `Deploy to Render` triggers automatically and updates the live API.
+
+No manual clicking required !
