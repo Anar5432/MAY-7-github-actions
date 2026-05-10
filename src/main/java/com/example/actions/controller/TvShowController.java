@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/tvshows")
 public class TvShowController {
 
-    private fina TvShowService tvShowService;
+    private final TvShowService tvShowService;
 
     public TvShowController(TvShowService tvShowService) {
         this.tvShowService = tvShowService;
