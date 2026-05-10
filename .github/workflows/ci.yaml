@@ -1,19 +1,22 @@
-name: Deploy to  Render
-on:
+name: Actions App CI
 
-  workflow_run:
-    workflows:  ["Actions App CI"]
-    types: [completed]
-    branches: [main]
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
+
     steps:
-      - name: Trigger  Render deploy
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+      - uses: actions/checkout@v3
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-      - name: Deployment summary
-        run: echo "Render  deployment triggered successfully! Check Render dashboard for build status." >> $GITHUB_STEP_SUMMARY
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
